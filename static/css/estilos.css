@@ -1,0 +1,45 @@
+.voto-img{
+    width: 40px;
+    float: left;
+    margin-right: 3px;
+    display: block;
+}
+
+.empty{
+    background-image: url('../images/star-empty.svg');
+}
+.empty:hover{
+    background-image: url('../images/star-filled.svg');
+}
+
+.img-dinos{
+    width: 60px;
+}
+
+@page{
+    margin: 2cm;
+    @bottom-left {
+        background: #fbc847;
+        content: counter(page) "/" counter(pages);
+        height: 1cm;
+        text-align: center;
+        width: 1cm; }
+      @top-center {
+        background: #fbc847;
+        content: 'Encabezado';
+        display: block;
+        height: 1.05cm;
+        opacity: .5;
+        width: 100%; }
+      @top-right {
+        content: string(heading);
+        font-size: 9pt;
+        height: 1cm;
+        vertical-align: middle;
+        width: 100%; 
+    } 
+}
+
+h3{
+    string-set: heading content();
+}

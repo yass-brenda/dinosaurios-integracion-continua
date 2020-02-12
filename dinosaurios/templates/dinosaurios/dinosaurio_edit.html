@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Actualizar Dinosaurio
+{% endblock titulo %}
+    
+{% block contenido %}
+    <div class="col"></div>
+    <div class="col-6">
+        <h1>Actualizar Dinosaurio</h1>
+        {% if form.errors %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{form.errors}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+        {% endif %}
+        <form method="post" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.non_field_errors }}   
+            {{form.as_p}}   
+            <button type="submit" class="btn-primary btn">Guardar</button>
+            <a href="{% url "lista_periodo" %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+    <div class="col"></div>
+{% endblock contenido %}

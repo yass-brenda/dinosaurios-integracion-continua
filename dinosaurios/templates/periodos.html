@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block titulo %}  
+    Periodos
+{% endblock titulo %}
+
+{% block contenido %}
+    <h3>Lista periodos</h3>
+    <a href="{% url "agregar_periodo" %}" class="btn btn-primary bt-sm">Agregar periodo</a>
+    <table class="table table-striped mt-3">
+        <thead class="thead-dark">
+            <th>ID Periodo</th>
+            <th>Nombre del periodo</th>
+            <th>Descripción</th>
+            <th>Opciones</th>
+        </thead>
+        <tbody>
+            {% for periodo in periodos %}
+                <tr>
+                    <td>{{periodo.id}}</td>
+                    <td>{{periodo.nombre}}</td>
+                    <td>{{periodo.descripcion}}</td>
+                    <td>
+                        <a href="{% url "eliminar_periodo" periodo.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url "editar_periodo" periodo.id %}" class="btn btn-success btn-sm">Editar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock contenido %}

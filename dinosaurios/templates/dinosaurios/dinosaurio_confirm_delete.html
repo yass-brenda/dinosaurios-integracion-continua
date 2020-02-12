@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+    <div class="row p-5">
+        <div class="col">
+            <form method="post" class="form">{% csrf_token %}
+                <p>¿Deseas eliminar el dinosaurio "{{ object }}"?</p>
+                <input type="submit" value="Eliminar" class="btn btn-danger">
+                <a href="{% url "lista_dinos" %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+{% endblock contenido %}
+    

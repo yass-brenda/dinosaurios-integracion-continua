@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+   Nuevo periodo 
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Nuevo periodo</h1>
+    <form method="post" class="form">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Agregar</button>
+        <a href="{% url "lista_periodo" %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock contenido %}

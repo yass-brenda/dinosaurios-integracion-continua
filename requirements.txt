@@ -1,0 +1,7 @@
+django==2.1.11
+Pillow
+mysqlclient
+flake8
+autopep8
+behave-django
+django-weasyprint

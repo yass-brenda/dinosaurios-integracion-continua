@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Crear cliente
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <h1>Crear Cliente</h1>    
+    
+    {% if form.errors or cliente_form.errors %}
+        <div class="alert alert-warning">
+            {{form.errors}}
+            {{cliente_form.errors}}
+
+        </div>
+    {% endif %}
+        
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        {{cliente_form.as_p}}
+
+        <button type="submit" class="btn btn-primary">Agregar</button>
+    </form>
+
+{% endblock contenido %}
+
+{% block scripts %}
+    <script src="{% static "js/funciones.js" %}"></script>
+{% endblock scripts %}
+    
+    

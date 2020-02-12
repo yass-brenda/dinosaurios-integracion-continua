@@ -1,0 +1,22 @@
+<h3>Lista dinosaurios</h3>
+<table class="table table-striped mt-3">
+    <thead class="thead-dark">
+        <th>ID Dinosaurio</th>
+        <th>Nombre del dinosaurio</th>
+        <th>Altura</th>
+        <th>Periodo</th>
+        <th>Imagen</th>
+    </thead>
+    <tbody>
+        {% for dino in object_list %}
+            <tr>
+                <td>{{dino.id}}</div></td>
+                <td>{{dino.nombre}}</td>
+                <td>{{dino.altura}}</td>
+                <td>{{dino.periodo}}</td>
+                <td><img src="{{MEDIA_URL}}{{dino.imagen}}" class="img-dinos" alt="{{dino.nombre}}"></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h4>La suma de las alturas de los dinos es: {{suma}}</h4>

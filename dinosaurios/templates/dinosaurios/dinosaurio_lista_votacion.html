@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+    Lista de dinos votados
+{% endblock titulo %}
+
+
+{% block contenido %}
+    <h3>Lista de dinos y su votaciones</h3>
+    <table class="table">
+        {% for dinosaurio in  object_list %}
+            <tr>
+                <td>{{dinosaurio.dino.nombre}}</td>
+                <td>
+                    {% for i in '12345'|make_list %}
+                       {% if forloop.counter0 >= dinosaurio.votos.promedio %}
+                            <img src="{% static "images/star-empty.svg" %}" class="voto-img">
+                        {% else %}
+                            <img src="{% static "images/star-filled.svg" %}" class="voto-img">
+                       {% endif %}
+                    {% endfor %}
+                </td>
+                <td>{{dinosaurio.votos.promedio}} calificación</td>
+                {% if request.user.is_authenticated %}
+                    <td><a href="">votar</a></td>
+                {% endif %}
+                    
+            </tr>
+        {% endfor %}
+    </table>
+        
+{% endblock contenido %}
+    
+    
